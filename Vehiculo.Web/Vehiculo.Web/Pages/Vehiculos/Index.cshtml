@@ -1,0 +1,74 @@
+﻿@page
+@model Web.Pages.Vehiculos.IndexModel
+@{
+}
+<header class="subhead">
+    <div class="container">
+        <div class="masthead-subheading">SC-701: Programación Web Avanzada</div>
+        <div class="masthead-heading text-uppercase">Listado de vehiculos</div>
+    </div>
+</header>
+
+<section class="page-section bg-light" id="principal">
+    <div class="card shadow p-4">
+
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h4>Lista de Vehículos</h4>
+            <a class="btn btn-success" asp-page="./Agregar">
+                <i class="bi bi-plus-lg"></i> Agregar
+            </a>
+        </div>
+
+        @if (Model.vehiculos != null && Model.vehiculos.Any())
+        {
+            <div class="table-responsive">
+                <table class="table table-hover align-middle">
+
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Marca</th>
+                            <th>Modelo</th>
+                            <th>Año</th>
+                            <th>Placa</th>
+                            <th class="text-center">Acciones</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var vehiculo in Model.vehiculos)
+                        {
+                            <tr>
+                                <td>@vehiculo.Marca</td>
+                                <td>@vehiculo.Modelo</td>
+                                <td>@vehiculo.Anio</td>
+                                <td>@vehiculo.Placa</td>
+
+                                <td class="text-center">
+                                    <a class="btn btn-sm btn-info" asp-page="./Detalle" asp-route-id="@vehiculo.Id">
+                                        <i class="bi bi-eye"></i>
+                                    </a>
+
+                                    <a class="btn btn-sm btn-warning" asp-page="./Editar" asp-route-id="@vehiculo.Id">
+                                        <i class="bi bi-pencil"></i>
+                                    </a>
+
+                                    <a class="btn btn-sm btn-danger" asp-page="./Eliminar" asp-route-id="@vehiculo.Id">
+                                        <i class="bi bi-trash"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+
+                </table>
+            </div>
+        }
+        else
+        {
+            <div class="alert alert-warning text-center">
+                No hay vehículos disponibles.
+            </div>
+        }
+
+    </div>
+</section>

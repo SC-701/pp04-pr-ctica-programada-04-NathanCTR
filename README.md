@@ -1,30 +1,34 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/ZrodP357)
-# Práctica Programada #4: Código de los videos semana 9
+# Práctica programada #2: Código de los videos semana 2, 3 y 4
 
-**Semana de entrega**: 11
-**Rubro**: Práctica programada 04
-**Valor**: 4%
-**Tiempo estimado**: 120 minutos
+**Semana de entrega**: 7  
+**Fecha de entrega**: 25 de febrero, 2026  
+**Rubro**: Práctica programada 02  
+**Valor**: 4%  
+**Tiempo estimado**: 120 minutos  
 **Modalidad**: Extraclase
 
-> 📊 Esta práctica representa el **100%** de la Práctica programada 04
+> 📊 Esta práctica representa el **100%** de la Práctica programada 02
 
 ## Indicaciones
 
 Implementar el código fuente correspondiente a los videos:
-- Semana 09
-  - 01-SA-Conceptos
-  - 02-SA-Conceptos
-  - 03-SA-Paquete Autorización
-  - 04-SA-API Seguridad en Azure
-  - 05-SA-API Con Seguridad
-  - 06-SA-Web Con Seguridad
+- Semana 02
+  - Semana 2_1_BaseDatos y conceptos
+  - Semana 2_2_Estructura
+- Semana 03
+  - Semana 3_1_Estructura
+- Semana 04
+  - Semana 4_1_Route y parametros
+  - Semana 4_2_Validaciones modelos
+  - Semana 4_3_Validaciones controllers
 
 ## 💡 Recomendación
 
-Se recomienda **copiar el código realizado en la Práctica Programada 3** como punto de partida y continuar con la implementación de los videos de la semana 9.
+Se recomienda **copiar el código realizado en la Práctica Programada 1** como punto de partida y continuar con la implementación de los videos de la semana 4.
 
 ## Entregables
 
 1. **Código fuente completo** del proyecto y compilando sin errores
 2. Código subido a este repositorio
+
+---

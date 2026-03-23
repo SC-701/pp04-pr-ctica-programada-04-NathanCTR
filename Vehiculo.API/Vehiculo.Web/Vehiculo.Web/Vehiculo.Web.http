@@ -1,0 +1,6 @@
+@Vehiculo.Web_HostAddress = http://localhost:5157
+
+GET {{Vehiculo.Web_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

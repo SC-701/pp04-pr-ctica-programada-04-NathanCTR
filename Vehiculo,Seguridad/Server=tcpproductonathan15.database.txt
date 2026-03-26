@@ -1,0 +1,1 @@
+Server=tcp:productonathan15.database.windows.net,1433;Initial Catalog=vehiculo-db-2504843;Persist Security Info=False;User ID=NathanCTR;Password={Cocasmash2014};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;

@@ -10,6 +10,6 @@ namespace Abstracciones.API
 {
     public interface IAutorizacionController
     {
-        Task<ActionResult> PostAsync([FromBody] LoginBase Loging);
+        Task<IActionResult> PostAsync([FromBody] LoginBase Loging);
     }
 }

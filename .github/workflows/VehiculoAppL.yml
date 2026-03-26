@@ -50,7 +50,7 @@ jobs:
         run: dotnet test "Vehiculo.API/Vehiculo.API.sln" --no-restore --verbosity normal --configuration Release || echo "No tests found or test execution failed"
 
       - name: dotnet publish
-        run: dotnet publish "Vehiculo.API/Vehiculo.Web/Vehiculo.Web/Web.csproj" -c Release -o ./publish --no-restore
+        run: dotnet publish "Vehiculo.Web/Vehiculo.Web/Web.csproj" -c Release -o ./publish --no-restore
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4

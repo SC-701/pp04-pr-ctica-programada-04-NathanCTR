@@ -25,21 +25,21 @@ jobs:
 
       - name: Restaurar dependencias
         run: |
-          cd Vehiculo.Autorizacion/Middleware
+          cd Vehiculo.Autorizacion/Flujo
           dotnet restore Middleware.csproj
 
       - name: Compilar en Release
         run: |
-          cd Vehiculo.Autorizacion/Middleware
+          cd Vehiculo.Autorizacion/Flujo
           dotnet build Middleware.csproj --configuration Release --no-restore
 
       - name: Cleanup old .nupkg files
         run: |
-          rm -f Vehiculo.Autorizacion/Middleware/nupkgs/*.nupkg
+          rm -f Vehiculo.Autorizacion/Flujo/nupkgs/*.nupkg
 
       - name: Empaquetar (dotnet pack)
         run: |
-          cd Vehiculo.Autorizacion/Middleware
+          cd Vehiculo.Autorizacion/Flujo
           dotnet pack Middleware.csproj --configuration Release --no-build --output ./nupkgs
 
       - name: Set up NuGet sources
@@ -47,5 +47,5 @@ jobs:
 
       - name: Publicar en GitHub Packages
         run: |
-          cd Vehiculo.Autorizacion/Middleware
+          cd Vehiculo.Autorizacion/Flujo
           dotnet nuget push ./nupkgs/*.nupkg --source "https://nuget.pkg.github.com/SC-701/index.json" --api-key ${{ secrets.GITHUB_TOKEN }} --skip-duplicate

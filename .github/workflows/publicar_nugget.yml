@@ -31,7 +31,7 @@ jobs:
       - name: Compilar en Release
         run: |
           cd Vehiculo.Autorizacion/Abstracciones
-          dotnet build Middleware.csproj --configuration Release --no-restore
+          dotnet build Abstracciones.csproj --configuration Release --no-restore
 
       - name: Cleanup old .nupkg files
         run: |

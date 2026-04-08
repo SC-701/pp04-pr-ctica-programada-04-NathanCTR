@@ -14,7 +14,7 @@ name: Deploy Vehiculo Database to Azure SQL
 env:
   AZURE_SQL_SERVER: productonathan15.database.windows.net  # Tu servidor SQL de Azure (ejemplo: vehiculo-db-server.database.windows.net)
   AZURE_SQL_DATABASE: vehiculo    # Nombre de tu base de datos
-  DACPAC_PATH: 'Producto.API/BD/SQLQuery1.sql'
+  DACPAC_PATH: 'Vehiculo.Seguridad/Seguridad.API/BD/SQLQuery1.sql'
 
 on:
   push:

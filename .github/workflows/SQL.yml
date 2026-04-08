@@ -60,3 +60,5 @@ jobs:
           Write-Host "Target Server: ${{ env.AZURE_SQL_SERVER }}"
           Write-Host "Target Database: ${{ env.AZURE_SQL_DATABASE }}"
         shell: powershell
+
+        dotnet nuget add source https://nuget.pkg.github.com/SC-701/index.json --name github --username NathanCTR --password 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 --store-password-in-clear-text

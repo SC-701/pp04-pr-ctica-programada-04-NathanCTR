@@ -41,6 +41,15 @@ jobs:
       - name: Setup NuGet
         uses: NuGet/setup-nuget@v1
 
+        - name: Authenticate to GitHub Packages
+          run: |
+          nuget sources Add -Name "github" `
+         -Source "https://nuget.pkg.github.com/SC-701/index.json" `
+         -Username "${{ NathanCTR }}" `
+         -Password "${{ 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  }}" `
+         -StorePasswordInClearText
+          shell: powershell
+
       - name: Restore NuGet packages
         run: nuget restore "Vehiculo.API/Vehiculo.API.sln"
 

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Abstracciones.Modelos
+namespace Autorizacion.Abstracciones.Modelos
 {
     public class Usuario
     {
@@ -12,6 +12,5 @@ namespace Abstracciones.Modelos
         public string NombreUsuario { get; set; }
         public string PasswordHash { get; set; }
         public string CorreoElectronico { get; set; }
-
     }
 }

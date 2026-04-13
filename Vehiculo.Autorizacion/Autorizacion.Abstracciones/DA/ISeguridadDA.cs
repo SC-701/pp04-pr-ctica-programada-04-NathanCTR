@@ -1,15 +1,16 @@
-﻿using Abstracciones.Modelos;
+﻿using Autorizacion.Abstracciones.Modelos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Abstracciones.Interfaces.Flujo
+namespace Autorizacion.Abstracciones.DA
 {
-    public interface IAutorizacionFlujo
+    public interface ISeguridadDA
     {
-        Task<Usuario> ObtenerUsuario(Usuario usuario);
+        Task<Usuario> ObtenerInformacionUsuario(Usuario usuario);
+
         Task<IEnumerable<Perfil>> ObtenerPerfilesxUsuario(Usuario usuario);
     }
 }

@@ -1,13 +1,13 @@
-﻿using Abstracciones.Interfaces.DA;
-using Abstracciones.Interfaces.Flujo;
-using Abstracciones.Modelos;
+﻿using Autorizacion.Abstracciones.Flujo;
+using Autorizacion.Abstracciones.DA;
+using Autorizacion.Abstracciones.Modelos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Flujo
+namespace Autorizacion.Flujo
 {
     public class AutorizacionFlujo : IAutorizacionFlujo
     {
@@ -15,7 +15,7 @@ namespace Flujo
 
         public AutorizacionFlujo(ISeguridadDA seguridadDA)
         {
-            _seguridadDA = _seguridadDA;
+            _seguridadDA = seguridadDA;
         }
 
         public async Task<IEnumerable<Perfil>> ObtenerPerfilesxUsuario(Usuario usuario)

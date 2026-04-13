@@ -14,13 +14,13 @@ name: Deploy Vehiculo Database to Azure SQL
 env:
   AZURE_SQL_SERVER: productonathan15.database.windows.net  # Tu servidor SQL de Azure (ejemplo: vehiculo-db-server.database.windows.net)
   AZURE_SQL_DATABASE: vehiculo    # Nombre de tu base de datos
-  DACPAC_PATH: 'Vehiculo.Seguridad/Seguridad.API/BD/SQLQuery1.sql'
+  DACPAC_PATH: 'Vehiculo.API/BD/bin/Release/BD.dacpac'
 
 on:
   push:
     branches: [ "main" ]
     paths:
-      - 'Vehiculo.API/BD/SQLQuery1.sql'
+      - 'Vehiculo.API/BD/**'
   workflow_dispatch:
 
 permissions:
@@ -34,7 +34,21 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-        
+
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v2
+
+      - name: Setup NuGet
+        uses: NuGet/setup-nuget@v1
+
+      - name: Restore NuGet packages
+        run: nuget restore "Vehiculo.API/Vehiculo.API.sln"
+
+      - name: Build Database Project
+        run: |
+          msbuild "Vehiculo.API/BD/BD.sqlproj" /p:Configuration=Release /p:Platform="Any CPU" /p:OutputPath="./bin/Release/"
+        shell: cmd
+
       - name: Verify DACPAC file exists
         run: |
           if (Test-Path "${{ env.DACPAC_PATH }}") {
@@ -60,5 +74,3 @@ jobs:
           Write-Host "Target Server: ${{ env.AZURE_SQL_SERVER }}"
           Write-Host "Target Database: ${{ env.AZURE_SQL_DATABASE }}"
         shell: powershell
-
-        dotnet nuget add source https://nuget.pkg.github.com/SC-701/index.json --name github --username NathanCTR --password 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 --store-password-in-clear-text

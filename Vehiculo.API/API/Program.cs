@@ -1,5 +1,7 @@
 using Abstracciones.Interfaces.DA;
 using Abstracciones.Interfaces.Flujo;
+using Abstracciones.Interfaces.Servicios;
+using Abstracciones.Interfaces.Reglas;
 using DA;
 using DA.Repositorios;
 using Flujo;

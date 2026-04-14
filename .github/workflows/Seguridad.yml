@@ -40,7 +40,6 @@ jobs:
 
       - name: Restaurar dependencias
         run: |
-          cd "Vehiculo.API/API"
           dotnet restore "Vehiculo.API/Abstracciones/Abstracciones.csproj"
           dotnet restore "Vehiculo.API/DA/DA.csproj"
           dotnet restore "Vehiculo.API/Flujo/Flujo.csproj"
@@ -65,4 +64,4 @@ jobs:
         with:
           app-name:        ${{ env.AZURE_WEBAPP_NAME }}
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_SEGURIDAD }}
-          package:         '.Vehiculo.API/publish'
+          package:         './Vehiculo.API/publish'

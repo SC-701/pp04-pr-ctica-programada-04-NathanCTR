@@ -1,8 +1,8 @@
 ﻿name: Deploy Seguridad Database to Azure SQL
 
 env:
-  AZURE_SQL_SERVER: darvsc701.database.windows.net
-  AZURE_SQL_DATABASE: Vehiculos
+  AZURE_SQL_SERVER: productonathan15.database.windows.net
+  AZURE_SQL_DATABASE: vehiculo-db-2504843
   DACPAC_PATH: 'Vehiculo.API/BD/bin/Release/BD.dacpac'
 
 on:

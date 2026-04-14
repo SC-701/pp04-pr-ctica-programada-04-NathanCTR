@@ -40,6 +40,7 @@ jobs:
 
       - name: Restaurar dependencias
         run: |
+          cd "Vehiculo.API"
           dotnet restore "Vehiculo.API/Abstracciones/Abstracciones.csproj"
           dotnet restore "Vehiculo.API/DA/DA.csproj"
           dotnet restore "Vehiculo.API/Flujo/Flujo.csproj"

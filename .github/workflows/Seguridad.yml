@@ -41,11 +41,11 @@ jobs:
       - name: Restaurar dependencias
         run: |
           cd "Vehiculo.API/API"
-          dotnet restore "Abstracciones/Abstracciones.csproj"
-          dotnet restore "DA/DA.csproj"
-          dotnet restore "Flujo/Flujo.csproj"
-          dotnet restore "Reglas/Reglas.csproj"
-          dotnet restore "API/API.csproj"
+          dotnet restore "Vehiculo.API/Abstracciones/Abstracciones.csproj"
+          dotnet restore "Vehiculo.API/DA/DA.csproj"
+          dotnet restore "Vehiculo.API/Flujo/Flujo.csproj"
+          dotnet restore "Vehiculo.API/Reglas/Reglas.csproj"
+          dotnet restore "Vehiculo.API/API/API.csproj"
 
       - name: Compilar
         run: |

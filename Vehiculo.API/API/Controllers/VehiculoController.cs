@@ -3,6 +3,7 @@ using Abstracciones.Interfaces.API;
 using Abstracciones.Modelos;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace API.Controllers
 {
@@ -19,12 +20,14 @@ namespace API.Controllers
             _logger = logger;
         }
         [HttpPost]
+        [Authorize(Roles="1")]
         public async Task<IActionResult> Agregar([FromBody] VehiculoRequest vehiculo)
         {
             var resultado = await _vehiculoFlujo.Agregar(vehiculo);
             return CreatedAtAction(nameof(Obtener), new { Id = resultado }, null);
         }
         [HttpPut("{Id}")]
+        [Authorize(Roles = "2")]
         public async Task<IActionResult> Editar([FromRoute] Guid Id, [FromBody] VehiculoRequest vehiculo)
         {
             var resultadoVehiculoExiste = await _vehiculoFlujo.Obtener(Id);
@@ -34,12 +37,14 @@ namespace API.Controllers
             return Ok(resultado);
         }
         [HttpDelete("{Id}")]
+        [Authorize(Roles = "1")]
         public async Task<IActionResult> Eliminar([FromRoute] Guid Id)
         {
             var resultado = await _vehiculoFlujo.Eliminar(Id);
             return Ok(resultado);
         }
         [HttpGet]
+        [Authorize(Roles = "2")]
         public async Task<IActionResult> Obtener()
         {
             var resultado = await _vehiculoFlujo.Obtener();
@@ -48,6 +53,7 @@ namespace API.Controllers
             return Ok(resultado);
         }
         [HttpGet("{Id}")]
+        [Authorize(Roles = "1")]
         public async Task<IActionResult> Obtener(Guid Id)
         {
             var resultado = await _vehiculoFlujo.Obtener(Id);

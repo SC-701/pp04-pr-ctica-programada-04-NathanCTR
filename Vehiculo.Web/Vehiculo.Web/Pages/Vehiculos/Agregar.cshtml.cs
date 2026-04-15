@@ -11,6 +11,7 @@ using System.Text.Json;
 
 namespace Web.Pages.Vehiculos
 {
+    [Authorize]
     public class AgregarModel : PageModel
     {
         private IConfiguracion _configuracion;
@@ -38,7 +39,7 @@ namespace Web.Pages.Vehiculos
             if (!ModelState.IsValid)
                 return Page();
             string endpoint = _configuracion.ObtenerMetodo("ApiEndPoints", "AgregarVehiculo");
-            var cliente = new HttpClient();
+            var cliente = ObtenerClienteConToken();
 
             var respuesta = await cliente.PostAsJsonAsync(endpoint, vehiculo);
             respuesta.EnsureSuccessStatusCode();
@@ -48,7 +49,7 @@ namespace Web.Pages.Vehiculos
         private async Task ObtenerMarcasAsync()
         {
             string endpoint = _configuracion.ObtenerMetodo("ApiEndPoints", "ObtenerMarcas");
-            var cliente = new HttpClient();
+            var cliente = ObtenerClienteConToken();
             var solicitud = new HttpRequestMessage(HttpMethod.Get, endpoint);
 
             var respuesta = await cliente.SendAsync(solicitud);
@@ -76,7 +77,7 @@ namespace Web.Pages.Vehiculos
         private async Task<List<Modelo>> ObtenerModelosAsync(Guid marcaId)
         {
             string endpoint = _configuracion.ObtenerMetodo("ApiEndPoints", "ObtenerModelos");
-            var cliente = new HttpClient();
+            var cliente = ObtenerClienteConToken();
             var solicitud = new HttpRequestMessage(HttpMethod.Get, string.Format(endpoint,marcaId));
 
             var respuesta = await cliente.SendAsync(solicitud);
@@ -89,5 +90,20 @@ namespace Web.Pages.Vehiculos
             }
             return new List<Modelo>();
         }
+
+        private HttpClient ObtenerClienteConToken()
+        {
+            var tokenClaim = HttpContext.User.Claims
+                .FirstOrDefault(c => c.Type == "AccessToken");
+            var cliente = new HttpClient();
+            if (tokenClaim != null)
+                cliente.DefaultRequestHeaders.Authorization =
+                    new System.Net.Http.Headers.AuthenticationHeaderValue(
+                        "Bearer", tokenClaim.Value);
+            return cliente;
+        }
     }
+
+
+
 }

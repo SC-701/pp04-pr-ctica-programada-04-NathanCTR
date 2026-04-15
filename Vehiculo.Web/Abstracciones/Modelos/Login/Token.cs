@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Abstracciones.Login
+namespace Abstracciones.Modelos.Login
 {
     public class Token
     {
         public bool ValidacionExitosa { get; set; }
-        public string AccessToken { get; set; }
+        public string? AccessToken { get; set; }
     }
 }

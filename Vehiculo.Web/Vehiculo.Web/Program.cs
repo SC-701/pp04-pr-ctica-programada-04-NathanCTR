@@ -1,14 +1,6 @@
-using Microsoft.AspNetCore.Authentication.Cookies;
-
-using Autorizacion.Abstracciones.DA;
-using Autorizacion.Abstracciones.Flujo;
-using Autorizacion.DA;
-using Autorizacion.Flujo;
-using Autorizacion.Middleware;
-
-
-using Reglas;
 using Abstracciones.Interfaces.Reglas;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -51,7 +43,9 @@ app.Run();
 
 app.UseRouting();
 
-app.UseAuthentication();
-app.UseAuthorization();
+app.UseAuthentication();    
+app.AutorizacionClaims();   
+app.UseAuthorization();     
+
 
 app.MapRazorPages();
